@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashtag Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hashtag Generator</h1>
+        <button onclick="generateHashtags()">Generate Hashtags</button>
+        <textarea id="hashtags" rows="6" placeholder="Generated hashtags will appear here"></textarea>
+    </div>
+
+    <script>
+        function selectHashtags() {
+            const hashtagList = [
+            "#review", "#reviews", "#reviewcafe", "#reviewfood", "#reviewhotel",
+    "#tour", "#travel", "#travelphotography", "#travelblogger", "#travelblog",
+    "#travellife", "#nature", "#naturephotography", "#naturelovers", "#naturegeography",
+    "#beauty", "#beautybloggers", "#beautyphotography", "#beautyblog",
+    "#manali", "#manalı", "#manalitrip", "#manaliadventure", "#manaliadventures",
+    "#manalibeauty", "#manalibiketrip", "#manalicafe",
+    "#tourism", "#tourisme", "#tourisma", "#tourismday",
+    "#popular", "#popularpic", "#popularphoto", "#popularnow",
+    "#love", "#instagood", "#like4like", "#followme", "#picoftheday", "#follow",
+    "#myself", "#selfie", "#summer", "#art", "#instadaily", "#friends",
+    "#repost", "#girl", "#fun", "#style", "#smile", "#food",
+    "#instalike", "#likeforlike", "#family", "#fitness", "#igers", "#tagsforlikes",
+    "#follow4follow", "#nofilter", "#life", "#amazing", "#instamood",
+    "#instagram", "#photography", "#vscocam", "#sun", "#photo", "#music",
+    "#followforfollow", "#bestoftheday", "#sky", "#ootd", "#sunset", "#dog",
+    "#vsco", "#makeup", "#foodporn", "#hair", "#pretty", "#swag",
+    "#model", "#motivation", "#girls", "#baby", "#party", "#cool",
+    "#lol", "#gym", "#design", "#instapic", "#funny", "#healthy",
+    "#night", "#tflers", "#yummy", "#flowers", "#lifestyle", "#hot",
+    "#instafood", "#wedding", "#fit", "#handmade", "#black", "#pink",
+    "#blue", "#work", "#workout", "#blackandwhite", "#drawing", "#inspiration",
+    "#home", "#holiday", "#nyc", "#instacool", "#Himalayas", "#Adventure",
+    "#goodmorning", "#iphoneonly", "#viewmanali"
+            ];
+
+            // Ensure 4 common hashtags are always included
+            const commonHashtags = ["#review", "#Travel", "#manali", "#viewmanali"];
+            const randomHashtags = hashtagList.sort(() => 0.5 - Math.random()).slice(0, 28 - commonHashtags.length);
+            return randomHashtags.concat(commonHashtags);
+        }
+
+        function generateHashtags() {
+            const postHashtags = selectHashtags();
+            document.getElementById('hashtags').value = postHashtags.join(' ');
+        }
+    </script>
+</body>
+</html>
